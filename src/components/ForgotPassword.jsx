@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
+  const navigate = useNavigate()
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <motion.div
@@ -32,9 +34,10 @@ const ForgotPassword = () => {
 
           {/* Submit Button */}
           <motion.button
+          disabled
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition duration-300"
+            className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition duration-300 disabled:bg-gray-200"
           >
             Send Reset Link
           </motion.button>
@@ -42,7 +45,7 @@ const ForgotPassword = () => {
           {/* Back to Login */}
           <p className="text-center text-gray-600 text-sm">
             Remember your password?{" "}
-            <a href="#" className="text-orange-600 font-medium hover:underline">
+            <a onClick={() => navigate("/login")} className="text-orange-600 font-medium hover:underline cursor-pointer">
               Log In
             </a>
           </p>

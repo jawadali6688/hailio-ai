@@ -15,7 +15,7 @@ const InfoAlert = ({message}) => {
           {message}
         </p>
         <span className="bg-red-600 text-white p-1 px-2 rounded-md text-sm">
-            <a href="https://jawad-khan.vercel.app/" target="_blank">Contact us</a>
+            <a href="https://jawad-khan.vercel.app/" target="_blank">Contact</a>
         </span>
       </div>
       <button

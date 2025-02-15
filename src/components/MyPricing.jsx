@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { CheckCircle, XCircle, DollarSign, Star, Briefcase } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const plans = [
   {
     id: 1,
     name: "Free Plan",
-    price: "only for Puran Dashti",
+    price: "only for Puranr Marka",
     icon: <DollarSign size={24} className="text-primary" />,
     features: [
       { text: "5 Minutes Free Voice", included: true },
@@ -47,6 +48,7 @@ const plans = [
 ];
 
 const MyPricing = () => {
+  const navigate = useNavigate()
   return (
     <section id="pricing" className="py-16 bg-base-100 text-center">
       <motion.h2
@@ -83,7 +85,9 @@ const MyPricing = () => {
                 </li>
               ))}
             </ul>
-            <button className={`mt-6 px-4 py-2 rounded-md ${plan.buttonStyle}`}>
+            <button 
+            onClick={() => navigate("/login")}
+            className={`mt-6 px-4 py-2 rounded-md ${plan.buttonStyle}`}>
               {plan.buttonText}
             </button>
           </motion.div>

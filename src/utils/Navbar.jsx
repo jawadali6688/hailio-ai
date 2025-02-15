@@ -50,11 +50,7 @@ const Navbar = () => {
                 onClick={() => navigate("/")}
                 to={item.id}
                 smooth={true}
-                className={`cursor-pointer transition duration-300 text-lg font-medium ${
-                  activeSection === item.id
-                    ? "text-orange-500"
-                    : "text-gray-700 hover:text-orange-500"
-                }`}
+                className={`cursor-pointer transition duration-300 text-lg font-medium `}
                 onSetActive={() => setActiveSection(item.id)}
               >
                 {item.name}
@@ -110,11 +106,7 @@ const Navbar = () => {
                   setIsOpen(false);
                   setActiveSection(item.id);
                 }}
-                className={`block text-lg font-medium py-2 cursor-pointer border p-2 border-gray-400 rounded-lg ${
-                  activeSection === item.id
-                    ? "text-orange-500das"
-                    : "text-gray-700ad hover:text-orange-500asd"
-                }`}
+                className={`block text-lg font-medium py-2 cursor-pointer border p-2 border-gray-400 rounded-lg `}
               >
                 {item.name}
               </Link>

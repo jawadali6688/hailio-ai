@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
 import { Mail, Lock, Eye, EyeOff, User } from "lucide-react";
 import { useState } from "react";
+import InfoAlert from "../components/InfoAlert";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
-
+  const text = 'We have closed our registration, for any query contact to admin.'
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 py-10">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 py-2">
+      <InfoAlert message={text} />
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -60,9 +64,10 @@ const Signup = () => {
 
           {/* Submit Button */}
           <motion.button
+          disabled
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition duration-300 cursor-pointer"
+            className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition duration-300 cursor-pointer disabled:bg-gray-200"
           >
             Sign Up
           </motion.button>
@@ -76,9 +81,10 @@ const Signup = () => {
 
           {/* Google Sign Up */}
           <motion.button
+          disabled
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full flex items-center justify-center space-x-2 border border-gray-300 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition duration-300"
+            className="w-full flex items-center justify-center space-x-2 border border-gray-300 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition disabled:bg-gray-200 disabled:text-white duration-300 cursor-pointer"
           >
             <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" className="w-5 h-5" />
             <span>Sign up with Google</span>
@@ -87,7 +93,7 @@ const Signup = () => {
           {/* Login Link */}
           <p className="text-center text-gray-600 text-sm">
             Already have an account?{" "}
-            <a href="#" className="text-orange-600 font-medium hover:underline">
+            <a onClick={() => navigate("/login")} className="text-orange-600 font-medium hover:underline cursor-pointer">
               Log In
             </a>
           </p>

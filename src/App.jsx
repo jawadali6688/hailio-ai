@@ -8,12 +8,14 @@ import ForgotPassword from "./components/ForgotPassword"
 import InfoAlert from "./components/InfoAlert"
 import UserDashboard from "./pages/UserDashboard"
 import UserHome from "./pages/dashboard/UserHome"
+import ScrollToTop from "../ScrollToTop"
 
 function App() {
   
   return (
    <>
    <BrowserRouter>
+   <ScrollToTop />
   <Routes >
     <Route path="" element = {<WebLayout />} >
     <Route path="/" element = {<Home />} />
