@@ -58,7 +58,7 @@ const Hero = () => {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.2 }}
-        className="mt-10 w-[70%] md:w-1/2 flex justify-center relative"
+        className="mt-5 w-[70%] md:w-1/2 flex justify-center relative"
       >
         <div className="relative">
           <img

@@ -105,6 +105,7 @@ const Navbar = () => {
                 onClick={() => {
                   setIsOpen(false);
                   setActiveSection(item.id);
+                  navigate("/")
                 }}
                 className={`block text-lg font-medium py-2 cursor-pointer border p-2 border-gray-400 rounded-lg `}
               >
