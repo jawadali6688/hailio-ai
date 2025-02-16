@@ -29,6 +29,7 @@ const Login = () => {
   // API Call for Login
   const onSubmit = async (userData) => {
     try {
+      setLoading(true)
       const { data } = await API.post("auth/login", userData);
       console.log("Login successful:", data);
       dispatch(loginUser(data?.data));
@@ -36,7 +37,10 @@ const Login = () => {
       // Redirect to dashboard after successful login
       navigate("/user_dashboard");
       toast.success(data?.message)
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
+      console.log(error)
       toast.success(error.response?.data?.message)
       console.error("Login error:", error.response?.data?.message || "Something went wrong!");
     } finally {
