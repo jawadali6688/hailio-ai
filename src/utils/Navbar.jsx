@@ -3,8 +3,12 @@ import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import useLogout from "./Logout";
 
 const Navbar = () => {
+  const logout = useLogout()
+  const user = useSelector((auth) => auth.auth.userData);
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -62,7 +66,28 @@ const Navbar = () => {
         {/* Right Side (Auth + Mobile Menu) */}
         <div className="flex items-center space-x-6">
           {/* Login & Register Buttons */}
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="hidden lg:flex">
+          {
+            user?.email ? (
+              <>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="hidden lg:flex">
+            <Link onClick={() => navigate("/user_dashboard")}>
+              <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded-md hover:bg-orange-500 hover:text-white transition duration-300 cursor-pointer">
+                Dashboard
+              </button>
+            </Link>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="hidden lg:flex">
+              <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-300 cursor-pointer">
+                Logout
+              </button>
+          </motion.div>
+              </>
+            )
+            :
+            (
+              <>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="hidden lg:flex">
             <Link onClick={() => navigate("/login")}>
               <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded-md hover:bg-orange-500 hover:text-white transition duration-300 cursor-pointer">
                 Login
@@ -77,6 +102,9 @@ const Navbar = () => {
               </button>
             </Link>
           </motion.div>
+              </>
+            )
+          }
 
           {/* Mobile Menu Button */}
           <button
@@ -115,7 +143,28 @@ const Navbar = () => {
 
             {/* Login & Register in Mobile Menu */}
             <div className="flex flex-col items-center space-y-3 mt-4">
-              <Link onClick={() => navigate("/login")} className="w-full cursor-pointer">
+              {
+                user?.email ? (
+                  <>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="">
+            <Link onClick={() => navigate("/user_dashboard")}>
+              <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded-md hover:bg-orange-500 hover:text-white transition duration-300 cursor-pointer">
+                Dashboard
+              </button>
+            </Link>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="">
+              <button onClick={logout} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-300 cursor-pointer">
+                Logout
+              </button>
+          </motion.div>
+              </>
+                )
+                :
+                (
+<>
+<Link onClick={() => navigate("/login")} className="w-full cursor-pointer">
                 <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded-md hover:bg-orange-500 hover:text-white transition duration-300 w-full cursor-pointer">
                   Login
                 </button>
@@ -125,6 +174,10 @@ const Navbar = () => {
                   Register
                 </button>
               </Link>
+</>
+                )
+              }
+              
             </div>
           </motion.div>
         )}

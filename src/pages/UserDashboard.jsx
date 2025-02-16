@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mic, RefreshCcw, RotateCcw  } from 'lucide-react'
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const [text, setText] = useState("");
@@ -20,7 +21,7 @@ const Dashboard = () => {
           placeholder="Type here to generate speech..."
         />
         <div className="mt-4 ml-4">
-            <button className="flex items-center gap-2 bg-orange-500 px-4 py-2 rounded-lg hover:bg-orange-600 duration-200 cursor-pointer active:bg-orange-700">
+            <button onClick={() => toast.error("Not allowed, please contact to admin.")} className="flex items-center gap-2 bg-orange-500 px-4 py-2 rounded-lg hover:bg-orange-600 duration-200 cursor-pointer active:bg-orange-700">
                 <span className="text-md lg:text-md">Generate Speech</span>
                 <Mic size={25}/>
             </button>
@@ -61,7 +62,7 @@ const Dashboard = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <h3 className="text-white font-semibold text-lg">Voice</h3>
-        <button className="text-gray-400 hover:text-white flex items-center space-x-1">
+        <button onClick={() => toast.error("Not allowed, please contact to admin.")} className="text-gray-400 hover:text-white flex items-center space-x-1">
           <RotateCcw size={16} />
           <span className="text-sm">Reset Value</span>
         </button>
@@ -69,7 +70,7 @@ const Dashboard = () => {
 
       {/* Voice Selection */}
       <div className="flex items-center bg-gray-700 p-3 rounded-lg shadow-md cursor-pointer hover:bg-gray-700 transition">
-        <img
+        <img onClick={() => toast.error("Not allowed, please contact to admin.")}
           src="https://jawad-khan.vercel.app/assets/myProfile-BAuoORxB.png"
           alt="Voice Avatar"
           className="w-10 h-10 rounded-full"
@@ -80,7 +81,7 @@ const Dashboard = () => {
             English
           </span>
         </div>
-        <RefreshCcw size={18} className="text-gray-400 hover:text-white" />
+        <RefreshCcw onClick={() => toast.error("Not allowed, please contact to admin.")} size={18} className="text-gray-400 hover:text-white" />
       </div>
     </div>
             <div>

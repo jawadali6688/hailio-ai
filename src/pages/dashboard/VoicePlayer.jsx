@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause, ThumbsUp, ThumbsDown, Download } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function VoicePlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -61,13 +62,13 @@ export default function VoicePlayer() {
       {/* Feedback & Download */}
       <div className="flex items-center space-x-3 text-gray-400">
         <p className="text-xs">How did this sound?</p>
-        <button className="hover:text-white">
+        <button onClick={() => toast.error("Not allowed, please contact to admin.")} className="hover:text-white">
           <ThumbsUp size={16} />
         </button>
-        <button className="hover:text-white">
+        <button onClick={() => toast.error("Not allowed, please contact to admin.")} className="hover:text-white">
           <ThumbsDown size={16} />
         </button>
-        <button className="hover:text-white">
+        <button onClick={() => toast.error("Not allowed, please contact to admin.")} className="hover:text-white">
           <Download size={16} />
         </button>
       </div>
