@@ -20,27 +20,6 @@ function App() {
    <ScrollToTop />
    <Toaster
   position="top-center"
-  toastOptions={{
-    style: {
-      background: "darkgray", // Dark blue background
-      color: "white", // White text
-      borderRadius: "8px",
-      padding: "12px",
-      fontSize: "16px",
-    },
-    success: {
-      style: {
-        background: "#22c55e", // Green for success
-        color: "#fff",
-      },
-    },
-    error: {
-      style: {
-        background: "#ef4444", // Red for errors
-        color: "#fff",
-      },
-    },
-  }}
 />
   <Routes >
     <Route path="" element = {<WebLayout />} >

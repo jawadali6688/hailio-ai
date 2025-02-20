@@ -15,7 +15,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const navigate = useNavigate()
-  const text = 'Login disabled for users, contact admin for more info.'
+  const text = 'Login to your account to access your dashboard'
   const user = useSelector((auth) => auth.auth.userData);
 
     // React Hook Form Setup

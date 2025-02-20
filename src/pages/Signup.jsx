@@ -37,7 +37,7 @@ const Signup = () => {
   };
 
 
-  const text = 'We have closed our registration, for any query contact to admin.'
+  const text = 'Hey folks, register your account and enjoy voice generation'
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 py-2">
       <InfoAlert message={text} />
