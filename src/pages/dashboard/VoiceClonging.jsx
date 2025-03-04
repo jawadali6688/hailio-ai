@@ -97,7 +97,7 @@ const VoiceCloning = () => {
 
     try {
       setIsProcessing(true);
-      const { data } = await axios.post("http://localhost:8080/api/v1/voice/clone_voice", {
+      const { data } = await axios.post("https://backend-hailio.onrender.com/api/v1/voice/clone_voice", {
         fileUrl: uploadedUrl,
         voiceName,
         userId: user._id
@@ -111,7 +111,8 @@ const VoiceCloning = () => {
       setSuccessMsg("Voice cloned successfully!");
     } catch (error) {
       setSuccessMsg(null);
-      toast.error(error.response.data.message);
+      toast.error(error?.response?.data?.message);
+      console.log(error)
     } finally {
       setIsProcessing(false);
     }

@@ -95,7 +95,7 @@ const audioSrc = blobToAudioUrl(audioBlob);
   const fetchClonedVoices = async () => {
     try {
       const { data } = await axios.post("https://backend-hailio.onrender.com/api/v1/auth/get_user_cloned", {userId})
-      console.log(data.data)
+      console.log(data.data, "cloned")
       setVoices(data.data.clonedVoices)
       setHistory(data.data.generatedVoices)
     } catch (error) {
@@ -108,7 +108,7 @@ const audioSrc = blobToAudioUrl(audioBlob);
     fetchClonedVoices()
   }, [tab])
 
-  
+  console.log(voices)
   
 
   return (
