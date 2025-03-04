@@ -8,7 +8,7 @@ export default function UserAuth({ children, authentication = true }) {
   const user = useSelector((state) => state.auth.userData);
   const authStatus = user?.accountType
   useEffect(() => {
-    if (authStatus === ("user") && authentication === false) {
+    if ((authStatus === "user" || authStatus === "test") && authentication === false) {
         navigate(pathname)
     }
     else {

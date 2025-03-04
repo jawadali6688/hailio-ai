@@ -49,13 +49,13 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (user?.accountType == "user" || user?.accountType === "test") {
+    if (user?.accountType === "user" || user?.accountType === "test") {
       navigate("/user_dashboard")
     }
     else {
       navigate("/login")
     }
-  }, [user])
+  }, [])
 
 
 

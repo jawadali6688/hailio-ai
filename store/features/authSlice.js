@@ -10,7 +10,7 @@ const authSlice = createSlice({
   reducers: {
     loginUser: (state, action) => {
       state.userData = action.payload?.user
-      console.log(action.payload)
+      console.log(action.payload, "user updated successfully!")
       localStorage.setItem("accessToken", action.payload?.accessToken)
     },
     logoutUser: (state, action) => {

@@ -54,7 +54,7 @@ export default function VoicePlayer({ audioSrc, speakerName = "Unknown Speaker" 
       {/* Voice Info & Seek Bar */}
       <div className="flex-1">
         <p className="text-white text-sm font-semibold">
-          {speakerName}: Generated Voice
+           Generated Voice
         </p>
         <div className="relative w-full h-2 bg-gray-700 rounded-lg mt-2 overflow-hidden">
           <div

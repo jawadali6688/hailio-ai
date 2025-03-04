@@ -11,6 +11,8 @@ import UserHome from "./pages/dashboard/UserHome"
 import ScrollToTop from "../ScrollToTop"
 import UserAuth from "../UserAuth"
 import { Toaster } from "react-hot-toast"
+import AdminHome from "./components/admin/AdminHome"
+import AdminLayout from "./utils/AdminLayout"
 
 function App() {
   
@@ -22,6 +24,10 @@ function App() {
   position="top-center"
 />
   <Routes >
+    {/* Admin */}
+    <Route path = "/admin" element= {<AdminLayout />}>
+    <Route path="" element={<AdminHome />} />
+    </Route>
     <Route path="" element = {<WebLayout />} >
     <Route path="/" element = {<Home />} />
     <Route path="/login" element = {<Login />} />

@@ -38,7 +38,7 @@ export default function UserNav({tab, setTab}) {
       </h1>
        
           <div>
-        <img src={user.avatar} alt="User Avatar" className="w-10 h-10 rounded-full border border-gray-700" />
+        <img src={user?.avatar} alt="User Avatar" className="w-10 h-10 rounded-full border border-gray-700" />
         </div>
           
         

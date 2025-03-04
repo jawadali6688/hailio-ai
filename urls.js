@@ -1,6 +1,7 @@
 import axios from "axios";
 export const API_URL = 'https://backend-hailio.onrender.com/api/v1/';
 
+// local: http://localhost:8080/api/v1/
 // https://backend-hailio.onrender.com
 // Create an Axios instance
 export const API = axios.create({
