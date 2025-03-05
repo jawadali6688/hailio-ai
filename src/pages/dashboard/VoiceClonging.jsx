@@ -97,7 +97,7 @@ const VoiceCloning = () => {
 
     try {
       setIsProcessing(true);
-      const { data } = await axios.post("https://backend-hailio.onrender.com/api/v1/voice/clone_voice", {
+      const { data } = await API.post("voice/clone_voice", {
         fileUrl: uploadedUrl,
         voiceName,
         userId: user._id
@@ -123,6 +123,9 @@ const VoiceCloning = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold mb-4 text-orange-500">Voice Cloning</h2>
+      <h1 className="text-green-400 my-2 gap-2 text-xl">
+          Note: For ultra clear and clean voice clone, please use 5 to 15 seconds speaker audio.
+        </h1>
       {successMsg && (
         <h1 className="text-green-400 mt-2 text-center flex items-center justify-center gap-2 text-xl">
           Voice cloned successfully
